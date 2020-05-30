@@ -2,6 +2,7 @@
 
 // Global string
 let str = "Hello World World";
+let str2 = "Tiago tiago ti";
 
 // To match a word
 const helloRegex = /Hello/;
@@ -13,12 +14,40 @@ const ignoreCaseRegex = /World/i;
 
 console.log(ignoreCaseRegex.test(str)); // Returns true
 
-// To match multiple words times and ignore case
-const multipleAndIgnoreCase = /World/gi;
-
-// To return an array of the matching word if contains
-// I can also add "g" or "i" at the end to ignore case of match multiple times
-const matchingWord = /World/;
-
 // The way .match() is called is different than .test()
-console.log(str.match(matchingWord));
+// I can also add "g" or "i" at the end to ignore case of match multiple times
+const matchingWord = /Tiago/i;
+
+console.log(str2.match(matchingWord)); // Returns an array of the matching word if contains
+
+// To match multiple words times and ignore case
+const multipleAndIgnoreCase = /Tiago/gi;
+
+console.log(str2.match(multipleAndIgnoreCase)); // Returns an array with all the matches
+
+// The WildCard character "." or simply dot/period is a way to accept any other character
+// Example /hu./ would accept "hug", "hut", "huh"
+let hugStr = "hug";
+let humStr = "hum";
+const huRegex = /hu./;
+
+console.log(huRegex.test(hugStr)); // Returns true
+console.log(huRegex.test(humStr)); // Returns true
+
+// A character classes allow to define a group of characters to match.
+// The matching group of characters can be defined inside of "[]"
+let quoteSample =
+	"Beware of bugs in the above code; I have only proved it correct, not tried it.";
+let vowelRegex = /[aeiou]/gi; // Gets all the vowals in the sentance. (Ignore case)
+let result = quoteSample.match(vowelRegex); // Returns an array with all the vowals
+
+console.log(result.length); // Gets the size of the array
+
+// "-" can be used to set a range of characters
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex); // Returns ["cat"]
+batStr.match(bgRegex); // Returns ["bat"]
+matStr.match(bgRegex); // Returns null
