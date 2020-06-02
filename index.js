@@ -60,3 +60,10 @@ jennyStr.match(myRegex);
 
 // Negated character set are those characters that I don't want
 // /[^aeiou]/gi matches all characters that are not a vowel.
+
+// If I need to match a character (or group of characters) that appears one or more times in a row.
+// I can use the "+" sign
+// It returns an array with the matchs (If there is morre than one match in a row it returns as one element)
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g;
+let result = difficultSpelling.match(myRegex);
