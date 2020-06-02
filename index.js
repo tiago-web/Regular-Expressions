@@ -51,3 +51,12 @@ let bgRegex = /[a-e]at/;
 catStr.match(bgRegex); // Returns ["cat"]
 batStr.match(bgRegex); // Returns ["bat"]
 matStr.match(bgRegex); // Returns null
+
+// "-" can also be used to set a range of numbers
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/gi;
+// matches all letters and numbers in jennyStr
+jennyStr.match(myRegex);
+
+// Negated character set are those characters that I don't want
+// /[^aeiou]/gi matches all characters that are not a vowel.
